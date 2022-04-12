@@ -12,7 +12,7 @@ on:
 
 jobs:
   build_index_definitions:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Setup python
