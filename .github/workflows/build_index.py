@@ -4,7 +4,6 @@ import yaml
 import os
 import re
 import math
-import configparser
 from datetime import date
 from collections import OrderedDict
 
