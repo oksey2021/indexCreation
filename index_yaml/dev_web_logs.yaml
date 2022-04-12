@@ -1,6 +1,0 @@
----
-indexes:
-- name: seun
-  description: All access and error logs from our development web servers.
-  owner: Web developers
-  retention_days: 14
