@@ -30,7 +30,7 @@ jobs:
         
       - name: Run scripts
         run: |
-          python ./splunk_indexmaster_demo-main/build_index.py
+          python ./.github/workflows/build_index.py
           git config user.name github-actions
           git config user.email github-actions@github.com
           if [ $(git status --porcelain | wc -l) -gt 0 ]; then git add master-apps/all_indexes_user/local/indexes.conf INDEXES_README.md; git commit -m "Auto built indexes.conf and INDEXES_README.md by actions"; git push; fi
