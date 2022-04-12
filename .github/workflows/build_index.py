@@ -87,9 +87,10 @@ for root, dirs, files in os.walk(PATH_TO_YAML_DIR):
                     raise Exception("Datatype value ({0}) is invalid. It must match the regex of {1}".format(idx["datatype"], REGEX_DATATYPE))
                     
                 f.write("[{0}]\n".format(idx["name"]))
-                f.write("homePath   = volume:primary/{0}/db\n".format(idx["name"]))
-                f.write("coldPath   = volume:primary/{0}/colddb\n".format(idx["name"]))
+                f.write("homePath   = volume:hot/{0}/db\n".format(idx["name"]))
+                f.write("coldPath   = volume:cold/{0}/colddb\n".format(idx["name"]))
                 f.write("thawedPath = $SPLUNK_DB/{0}/thaweddb\n".format(idx["name"]))
+                f.write("remote   = volume:s3/{0}\n".format(idx["name"]))
 
                 # If datatype is provided, at it to the config.
                 if "datatype" in idx:
