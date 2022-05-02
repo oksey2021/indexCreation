@@ -1,6 +1,6 @@
 ---
 indexes:
-- name: testing02
+- name: my_new_index
   description: Index for Splunk Admins to test data ingests before ingesting to production.
   owner: Splunk admins
   retention_days: 90
