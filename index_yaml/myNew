@@ -1,0 +1,6 @@
+---
+indexes:
+- name: myNew
+  description: All access and error logs from our production web servers.
+  owner: NEW
+  retention_days: 60
