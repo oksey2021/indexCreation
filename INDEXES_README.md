@@ -5,8 +5,8 @@ This document provides a summary of all the indexes defined in Splunk.
 |Index|Owner|Description|Retention (Days)|
 |-|-|-|-|
 |my_new_index|Splunk admins|Index for Splunk Admins to test data ingests before ingesting to production.|90|
-|mynew|NEW|All access and error logs from our production web servers.|60|
 |prod_web_logs|Web developers|All access and error logs from our production web servers.|90|
+|thisisnewdayryt|NEW|All access and error logs from our production web servers.|60|
 
 _<sup>*</sup> - These indexes do not have a specified retention time and are using the system wide setting of 365 retention days._
 
