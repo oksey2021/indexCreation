@@ -1,6 +1,6 @@
 ---
 indexes:
-- name: mynew
+- name: this is new day ryt?
   description: All access and error logs from our production web servers.
   owner: NEW
   retention_days: 60
