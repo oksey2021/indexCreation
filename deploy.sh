@@ -1,38 +1,19 @@
 #! /bin/bash
 
-export HOST_FILE="/Users/oluwaseunoke/hostlist"
+export HOST_FILE="54.242.194.181"
 
-export PRIVATE_KEY_PATH="/Users/oluwaseunoke/tekstream.pem"
+export PRIVATE_KEY_PATH="/Users/oluwaseunoke/Downloads/oksey2022-2.pem"
 
 export SSH_USER="ec2-user"
 
-export REMOTE_INSTALL_SCRIPT="sudo yum install wget -y
+export REMOTE_INSTALL_SCRIPT="sudo mv /home/ec2-user/indexes.conf /home/ec2-user/indexes
 
-sudo wget -O splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz 'https://download.splunk.com/products/splunk/releases/8.2.4/linux/splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz'
+sudo cp /home/ec2-user/indexes.conf /home/splunk/
 
-sudo tar -xvzf splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz -C /opt
+sudo chown -R splunk:splunk /home/splunk
 
-sudo rm -rf splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz
-
-sudo useradd splunk
-
-sudo usermod --password welcome90 splunk
-
-sudo usermod -a -G wheel splunk
-
-sudo chown -R splunk:splunk /opt/splunk
-
-sudo -u splunk /opt/splunk/bin/splunk start --accept-license --answer-yes --no-prompt --seed-passwd welcome90
-
-sudo /opt/splunk/bin/splunk enable boot-start -user splunk
-
-sudo -u splunk  /opt/splunk/bin/splunk status
-
-sudo -u splunk  /opt/splunk/bin/splunk version
-
-sudo -u splunk /opt/splunk/bin/splunk enable web-ssl -auth admin:welcome90
-
-sudo -u splunk /opt/splunk/bin/splunk restart"
+sudo -u splunk diff /home/splunk/indexes /opt/splunk/etc/system/default/indexes.conf | grep ">" | cut -c 3- >>  /opt/splunk/etc/system/local/indexes.conf
+"
 
 
 ### ========================================== ###
@@ -51,13 +32,10 @@ sleep 5
 echo "Reading host logins from $HOST_FILE"
 echo
 echo "Starting."
-for i in `cat "$HOST_FILE"`; do
-if [ -z "$i" ]; then
-continue;
-fi
+scp /var/lib/jenkins/workspace/firstJob/master-apps/all_indexes_user/local/indexes.conf $SSH_USER@$HOST_FILE:.
 echo "---------------------------"
-echo "Installing to $i"
-ssh -i $PRIVATE_KEY_PATH -t "$SSH_USER@$i" "$REMOTE_INSTALL_SCRIPT"
+echo "Reading to the host"
+ssh -i $PRIVATE_KEY_PATH -t "$SSH_USER@$HOST_FILE" "$REMOTE_INSTALL_SCRIPT"
 #ssh -t "$i" "$REMOTE_INSTALL_SCRIPT"
 done
 echo "---------------------------"
