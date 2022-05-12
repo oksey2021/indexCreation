@@ -32,7 +32,7 @@ echo "Starting."
 scp /var/lib/jenkins/workspace/firstJob/master-apps/all_indexes_user/local/indexes.conf $SSH_USER@$HOST_FILE:.
 echo "---------------------------"
 echo "Reading to the host"
-ssh "$SSH_USER@$HOST_FILE" "$REMOTE_INSTALL_SCRIPT"
+ssh -i /var/lib/jenkins/oksey2022.pem "$SSH_USER@$HOST_FILE" "$REMOTE_INSTALL_SCRIPT"
 #ssh -t "$i" "$REMOTE_INSTALL_SCRIPT"
 echo "---------------------------"
 echo "Done"          
