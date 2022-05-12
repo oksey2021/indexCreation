@@ -35,9 +35,8 @@ echo "Starting."
 scp /var/lib/jenkins/workspace/firstJob/master-apps/all_indexes_user/local/indexes.conf $SSH_USER@$HOST_FILE:.
 echo "---------------------------"
 echo "Reading to the host"
-ssh -i $PRIVATE_KEY_PATH -t "$SSH_USER@$HOST_FILE" "$REMOTE_INSTALL_SCRIPT"
+ssh  -t "$SSH_USER@$HOST_FILE" "$REMOTE_INSTALL_SCRIPT"
 #ssh -t "$i" "$REMOTE_INSTALL_SCRIPT"
 done
 echo "---------------------------"
-echo "Done"
-~             
+echo "Done"          
