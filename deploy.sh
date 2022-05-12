@@ -34,6 +34,5 @@ echo "---------------------------"
 echo "Reading to the host"
 ssh "$SSH_USER@$HOST_FILE" "$REMOTE_INSTALL_SCRIPT"
 #ssh -t "$i" "$REMOTE_INSTALL_SCRIPT"
-done
 echo "---------------------------"
 echo "Done"          
