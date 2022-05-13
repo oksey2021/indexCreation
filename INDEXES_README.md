@@ -4,6 +4,7 @@ This document provides a summary of all the indexes defined in Splunk.
 
 |Index|Owner|Description|Retention (Days)|
 |-|-|-|-|
+|dev_env|Web developers|All access and error logs from our production web servers.|100|
 |my_new_index|Splunk admins|Index for Splunk Admins to test data ingests before ingesting to production.|90|
 |prod_web_logs|Web developers|All access and error logs from our production web servers.|90|
 
