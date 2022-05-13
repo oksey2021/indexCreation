@@ -1,0 +1,6 @@
+---
+indexes:
+- name: dev_env
+  description: All access and error logs from our production web servers.
+  owner: Web developers
+  retention_days: 100
